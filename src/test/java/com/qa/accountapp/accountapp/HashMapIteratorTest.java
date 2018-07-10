@@ -9,15 +9,16 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import accounts.Account;
 import accounts.AccountService;
 
 public class HashMapIteratorTest {
 
-	AccountService accServ;
-	HashMapIterator iterator;
+	private AccountService accServ;
+	private HashMapIterator iterator;
 	
 	@Before
-	public static void setUp() throws Exception {
+	public void setUp() throws Exception {
 		accServ = new AccountService();
 		iterator = new HashMapIterator();
 	}
@@ -25,7 +26,7 @@ public class HashMapIteratorTest {
 
 	@Test
 	public void test() {
-		accServ.addAccount("Ekaterina", "Genova", 941115);
+		accServ.addAccount(new Account("Ekaterina", "Genova", 941115));
 		assertEquals(1, iterator.countAccountsByName("Ekaterina"));
 	}
 
