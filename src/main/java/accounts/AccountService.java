@@ -2,9 +2,15 @@ package accounts;
 
 import java.util.HashMap;
 
+import javax.xml.bind.annotation.*;
+
+@XmlRootElement
+@XmlSeeAlso(HashMap.class)
 public class AccountService {
 	
+	@XmlElement
 	protected HashMap<Integer, Account> accList = new HashMap();
+	
 	protected Integer key = 1;
 	
 	
