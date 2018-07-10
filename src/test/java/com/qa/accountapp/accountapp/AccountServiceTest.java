@@ -29,5 +29,10 @@ public class AccountServiceTest {
 		accS.addAccount(account1);
 		assertEquals(account1, accS.getByKey(1));
 	}
+	
+	@Test
+	public void countByName() {
+		assertEquals(1, accS.getNumAccountsByFirstName("Ekaterina"));
+	}
 
 }
