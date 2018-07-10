@@ -1,7 +1,7 @@
 package accounts;
 
 import java.util.HashMap;
-
+import java.util.stream.*;
 import javax.xml.bind.annotation.*;
 
 @XmlRootElement
@@ -31,15 +31,10 @@ public class AccountService {
 	}
 
 	public int getNumAccountsByFirstName(String firstName) {
-			int total = 0;
-			
-			for (Account acc: accList.values()) {
-				if(acc.getFirstName().equalsIgnoreCase(firstName)) {
-					total++;
-				}
-			}
-			
-		return total;
+			return (int) accList.entrySet()
+					.stream()
+					.filter(a -> a.getValue().getFirstName().equalsIgnoreCase(firstName))
+					.count();
 	}
 }
 	
