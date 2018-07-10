@@ -29,6 +29,17 @@ public class AccountService {
 	public HashMap<Integer,Account> getHash(){
 		return accList;
 	}
-	
 
+	public int getNumAccountsByFirstName(String firstName) {
+			int total = 0;
+			
+			for (Account acc: accList.values()) {
+				if(acc.getFirstName().equalsIgnoreCase(firstName)) {
+					total++;
+				}
+			}
+			
+		return total;
+	}
 }
+	
