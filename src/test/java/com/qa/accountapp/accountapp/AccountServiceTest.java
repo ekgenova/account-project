@@ -32,7 +32,9 @@ public class AccountServiceTest {
 	
 	@Test
 	public void countByName() {
+		accS.addAccount(new Account("Ekaterina", "Genova", 9414141));
 		assertEquals(1, accS.getNumAccountsByFirstName("Ekaterina"));
+		assertEquals(0, accS.getNumAccountsByFirstName("Benjamin"));
 	}
 
 }
